@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Produto - QVEBRA</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  background: #000;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 500px 400px;
+  gap: 60px;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.galeria {
+  display: flex;
+  gap: 15px;
+}
+
+.miniaturas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.miniaturas img {
+  width: 70px;
+  opacity: 0.6;
+  cursor: pointer;
+  border: 1px solid #222;
+}
+
+.miniaturas img:hover {
+  opacity: 1;
+  border: 1px solid #fff;
+}
+
+.imagem-principal {
+  width: 380px;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.imagem-principal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+.info {
+  max-width: 380px;
+}
+
+.breadcrumb {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.info h1 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.preco {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.pix {
+  color: #ff3b3b;
+  font-size: 14px;
+}
+
+.parcelamento {
+  font-size: 13px;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.desconto {
+  font-size: 13px;
+  color: #ff3b3b;
+}
+
+.frete {
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.tamanhos button {
+  background: transparent;
+  border: 1px solid #444;
+  color: white;
+  padding: 8px 14px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.tamanhos button.ativo {
+  border-color: white;
+}
+
+.qtd {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.qtd button {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #444;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.qtd span {
+  margin: 0 15px;
+}
+
+.comprar {
+  background: #d43c2f;
+  padding: 16px;
+  width: 100%;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.comprar:hover {
+  background: #a82e24;
+}
+
+.aviso {
+  margin-top: 20px;
+  border: 1px solid #d43c2f;
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* OVERLAY (fundo escuro) */
+#overlay-cart {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 999;
+}
+
+#overlay-cart.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* MENU DO CARRINHO */
+#cart-menu {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 350px;
+  height: 100%;
+  background: #111;
+  padding: 20px;
+  transition: 0.3s;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+#cart-menu.active {
+  right: 0;
+}
+
+/* BOTÃO FECHAR */
+#close-cart {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+/* ITEM DO CARRINHO */
+.cart-item {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.cart-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.cart-info {
+  font-size: 12px;
+}
+
+.cart-preco {
+  color: #ff3b3b;
+}
+
+/* CONTROLES */
+.cart-controls button {
+  margin-right: 5px;
+  background: transparent;
+  border: 1px solid #444;
+  color: white;
+  cursor: pointer;
+}
+
+/* TOTAL */
+#cart-menu p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+   <a href="index.html" class="logo">
+      <img src="logo.gif/logo.gif.gif" class="logo-icon">
+      QVEBRA
+   </a>
+
+   <nav>
+      <ul>
+         <li><a href="index.html">INICIO</a></li>
+         <li><a href="lancamento.html">LANÇAMENTOS</a></li>
+         <li><a href="produtos.html">PRODUTOS</a></li>
+         <li><a href="contato.html">CONTATO</a></li>
+      </ul>
+   </nav>
+
+   <div class="icons">
+      <input type="text" placeholder="Buscar..." id="search">
+      <a href="users.html">
+         <img src="img/login-avatar.png" class="user-icon">
+      </a>
+      <div class="cart-container">
+         <i class="cart">🛒</i>
+         <span id="cart-count">0</span>
+      </div>
+   </div>
+</header>
+
+<div class="container">
+
+  <div class="galeria">
+    <div class="miniaturas">
+      <img id="thumb1">
+    </div>
+
+    <div class="imagem-principal">
+      <img id="imagem">
+    </div>
+  </div>
+
+  <div class="info">
+
+    <p class="breadcrumb">Início • Produto</p>
+
+    <h1 id="nome"></h1>
+
+    <p class="preco" id="preco"></p>
+
+    <p class="pix">R$ <span id="pix"></span> no Pix</p>
+    <p class="parcelamento">3x de R$ <span id="parcelado"></span> sem juros</p>
+    <p class="desconto">5% de desconto pagando com Pix</p>
+
+    <p class="frete">Frete grátis acima de R$450</p>
+
+    <h4>Tamanho:</h4>
+    <div class="tamanhos">
+      <button>P</button>
+      <button>M</button>
+      <button>G</button>
+    </div>
+
+    <div class="qtd">
+      <button onclick="diminuir()">-</button>
+      <span id="quantidade">1</span>
+      <button onclick="aumentar()">+</button>
+    </div>
+
+    <button class="comprar" id="btn-comprar">ADICIONAR AO CARRINHO</button>
+
+    <div class="aviso">
+      ⚠ Se não servir ou não gostar, trocamos seu produto
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+const produtos = {
+  13: { nome: "[PREMIUM] BOXY SLAYER PRETA", preco: "R$260,00", img: "img/slayer-preta.png" },
+  14: { nome: "TRIBAL V2 PRETA", preco: "R$220,00", img: "img/tribal-v2-preta.png" },
+  15: { nome: "TRIBAL V2 BRANCA", preco: "R$220,00", img: "img/tribal-v2-branca.png" },
+  16: { nome: "OVERSIZED MANGA LONGA TRIBAL V2 PRETA", preco: "R$250,00", img: "img/tribal-v2-mangaLonga.png" },
+  17: { nome: "REGULAR OLD ANGEL PRETA", preco: "R$220,00", img: "img/angel-preta.png" },
+  18: { nome: "REGULAR OLD ANGEL BRANCA", preco: "R$220,00", img: "img/angel-branca.png" },
+  19: { nome: "TRIBAL V1 BRANCA", preco: "R$200,00", img: "img/tribal-v1-branca.png" },
+  20: { nome: "TRIBAL V1 PRETA", preco: "R$200,00", img: "img/tribal-v1-preta.png" },
+  5: { nome: "CALÇA CURSED BLOOD BAGGY JEANS", preco: "R$440,00", img: "img/calça.png" },
+  6: { nome: "[PREMIUM] MOLETOM ANGEL PRETO", preco: "R$370,00", img: "img/moletom-angel.png" },
+  7: { nome: "CINTO LIMITADO DE COBRA BELT RED", preco: "R$200,00", img: "img/cinto.png" },
+  8: { nome: "[PREMIUM] BOXY DEATH NOTE PRETA", preco: "R$250,00", img: "img/death-note-preta.png" },
+  9: { nome: "PREMIUM BOXY HOODIE OVERSIZED LAST LETTERS", preco: "R$380,00", img: "img/moletom-last.png" },
+  10:{ nome: "[PREMIUM] BOXY ANGEL PRETA", preco: "R$250,00", img: "img/angel-premium-preta.png" },
+  11:{ nome: "[PREMIUM] ZIP-HOODIE PRETO/CINZA", preco: "R$430,00", img: "img/zip.png" },
+  12:{ nome: "DESTROYED CURSED CAP (BONE)", preco: "R$230,00", img: "img/cap.png" },
+  1: { nome: "T-SHIRT OVERSIZED CAMINHOS", preco: "R$169,90", img: "img/caminhos.png" },
+  2: { nome: "REGULAR MONSTER CLASSIC", preco: "R$230,00", img: "img/monster.png" },
+  3: { nome: "TATICAL JORTS CURSED", preco: "R$390,00", img: "img/jorts.png" },
+  4: { nome: "T-SHIRT OVERSIZED ANATOMIA", preco: "R$229,90", img: "img/anatomia.png" }
+};
+
+const produto = produtos[id];
+
+if (produto) {
+  document.getElementById("nome").innerText = produto.nome;
+  document.getElementById("preco").innerText = produto.preco;
+  document.getElementById("imagem").src = produto.img;
+  document.getElementById("thumb1").src = produto.img;
+
+  const valor = Number(
+    produto.preco.replace("R$", "").replace(/\./g, "").replace(",", ".").trim()
+  );
+
+  const pix = valor * 0.95;
+  const parcela = valor / 3;
+
+  document.getElementById("pix").innerText = pix.toFixed(2).replace(".", ",");
+  document.getElementById("parcelado").innerText = parcela.toFixed(2).replace(".", ",");
+}
+
+/* TAMANHOS */
+document.querySelectorAll(".tamanhos button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tamanhos button").forEach(b => b.classList.remove("ativo"));
+    btn.classList.add("ativo");
+  });
+});
+
+/* QTD */
+let qtd = 1;
+
+function aumentar(){
+  qtd++;
+  document.getElementById("quantidade").innerText = qtd;
+}
+
+function diminuir(){
+  if(qtd > 1){
+    qtd--;
+    document.getElementById("quantidade").innerText = qtd;
+  }
+}
+
+/* CARRINHO */
+document.getElementById("btn-comprar").addEventListener("click", () => {
+
+  const precoNumero = Number(
+    produto.preco.replace("R$", "").replace(/\./g, "").replace(",", ".").trim()
+  );
+
+  const item = {
+    id: id,
+    nome: produto.nome,
+    preco: precoNumero,
+    img: produto.img,
+    qtd: qtd
+  };
+
+  let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+  carrinho.push(item);
+
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+if (typeof atualizarCarrinho === "function") {
+  atualizarCarrinho();
+}
+
+  alert("Produto adicionado ao carrinho 🛒");
+});
+</script>
+
+        <div id="overlay-cart"></div>
+
+<div id="cart-menu">
+  <button id="close-cart">X</button>
+
+  <div id="cart-items"></div>
+
+  <p>Total: R$ <span id="cart-total">0</span></p>
+
+  <p id="free-shipping"></p>
+
+  <label>
+    <input type="radio" name="shipping" checked> PAC
+    <span id="pac-price"></span>
+  </label>
+
+  <label>
+    <input type="radio" name="shipping"> SEDEX
+    <span id="sedex-price"></span>
+  </label>
+
+  <p>Total final: R$ <span id="final-total">0</span></p>
+  <p>Pix: R$ <span id="pix-total">0</span></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>QVEBRA</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/gif" href="logo.gif/logo.gif.gif">
+</head>
+<body>
+
+<header>
+   <a href="index.html" class="logo">
+  <img src="logo.gif/logo.gif.gif" class="logo-icon">
+  QVEBRA
+</a>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="lancamento.html">LANÇAMENTOS</a></li>
+            <li><a href="produtos.html">PRODUTOS</a></li>
+            <li><a href="contato.html">CONTATO</a></li>
+        </ul>
+    </nav>
+
+   <div class="icons">
+        <input type="text" placeholder="Buscar..." id="search">
+        <a href="users.html">
+  <img src="img/login-avatar.png" class="user-icon"></a>
+   <div class="cart-container">
+  <i class="cart">🛒</i>
+  <span id="cart-count">0</span>
+</div>
+    </div>
+
+<div id="overlay-cart" class="overlay-cart"></div>
+
+<div id="cart-menu" class="cart-menu">
+  
+  <div class="cart-header">
+    <h2>Seu Carrinho</h2>
+    <span id="close-cart">✕</span>
+  </div>
+
+  <div id="cart-items" class="cart-items"></div>
+
+  <div class="cart-footer">
+
+    <div class="free-shipping" id="free-shipping">
+      Faltam R$ 440,00 para frete grátis
+    </div>
+
+    <div class="cart-subtotal">
+      <span>Subtotal:</span>
+      <strong>R$ <span id="cart-total">0.00</span></strong>
+    </div>
+
+    <div class="cart-cep">
+
+      <div id="cep-view">
+        <span>Entregas para o CEP: <strong id="cep-mostrado">--</strong></span>
+        <a href="#" id="btn-cep">Alterar CEP</a>
+      </div>
+
+      <div id="cep-edit" style="display: none;">
+        <input type="text" placeholder="Seu CEP" id="input-cep">
+        <button id="calcular-cep">Calcular</button>
+        <a href="#" id="nao-sei-cep">Não sei meu CEP</a>
+      </div>
+
+    </div>
+
+    <div class="cart-warning">
+      ⚠ Se não servir ou não gostar, trocamos seu produto
+    </div>
+
+    <div class="shipping-title">
+      Envio a domicílio
+    </div>
+
+    <div class="shipping-option">
+      <label>
+        <input type="radio" name="shipping" value="pac" checked>
+        Nuvem Envio Correios PAC
+      </label>
+      <span class="shipping-price" id="pac-price"></span>
+    </div>
+
+    <div class="shipping-option">
+      <label>
+        <input type="radio" name="shipping" value="sedex">
+        Nuvem Envio Correios SEDEX
+      </label>
+      <span class="shipping-price" id="sedex-price">R$34,00</span>
+    </div>
+
+    <div class="shipping-info">
+      O prazo de entrega não contabiliza feriados.
+    </div>
+
+    <div class="cart-total-box">
+      <span>Total:</span>
+      <strong>R$ <span id="final-total">0.00</span></strong>
+    </div>
+
+    <div class="pix-price">
+      ou R$ <span id="pix-total">0.00</span> com Pix
+    </div>
+
+    <button class="checkout-btn">
+      Iniciar Compra
+    </button>
+
+    <div class="checkout-divider">
+      <span>OU</span>
+    </div>
+
+    <button class="checkout-nuvem">
+      Comprar com Nuvem
+    </button>
+
+    <a class="continue-shopping" href="produtos.html" id="btn-produtos">
+      Ver mais produtos
+    </a>
+
+  </div>
+</div>
+
+
+</header>
+
+        <section class="lancamentos">
+  <h2>LANÇAMENTOS</h2>
+
+  <div class="produtos">
+
+    <div class="produto">
+      <img src="img/caminhos.png">
+      <p class="nome">T-SHIRT OVERSIZED CAMINHOS</p>
+      <p class="preco">R$169,90</p>
+      <span>3x de R$56,63 sem juros</span>
+
+      <button class="btn-comprar"
+        data-id="1"
+        data-nome="T-SHIRT OVERSIZED CAMINHOS"
+        data-preco="169.90"
+        data-img="img/caminhos.png">
+        COMPRAR
+      </button>
+    </div>
+
+    <div class="produto">
+      <img src="img/monster.png">
+      <p class="nome">REGULAR MONSTER CLASSIC</p>
+      <p class="preco">R$230,00</p>
+      <span>3x de R$76,67 sem juros</span>
+
+      <button class="btn-comprar"
+        data-id="2"
+        data-nome="REGULAR MONSTER CLASSIC"
+        data-preco="230.00"
+        data-img="img/monster.png">
+        COMPRAR
+      </button>
+    </div>
+
+    <div class="produto">
+      <img src="img/jorts.png">
+      <p class="nome">TATICAL JORTS CURSED</p>
+      <p class="preco">R$390,00</p>
+      <span>3x de R$130,00 sem juros</span>
+
+      <button class="btn-comprar"
+        data-id="3"
+        data-nome="TATICAL JORTS CURSED"
+        data-preco="390.00"
+        data-img="img/jorts.png">
+        COMPRAR
+      </button>
+    </div>
+
+    <div class="produto">
+      <img src="img/anatomia.png">
+      <p class="nome">T-SHIRT OVERSIZED ANATOMIA</p>
+      <p class="preco">R$229,90</p>
+      <span>3x de R$76,63 sem juros</span>
+
+      <button class="btn-comprar"
+        data-id="4"
+        data-nome="T-SHIRT OVERSIZED ANATOMIA"
+        data-preco="229.90"
+        data-img="img/anatomia.png">
+        COMPRAR
+      </button>
+    </div>
+
+  </div>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>QVEBRA</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/gif" href="logo.gif/logo.gif.gif">
+</head>
+<body>
+
+<header>
+   <div class="logo">
+  <img src="logo.gif/logo.gif.gif" class="logo-icon">
+  QVEBRA
+</div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="lancamento.html">LANÇAMENTOS</a></li>
+            <li><a href="produtos.html">PRODUTOS</a></li>
+            <li><a href="contato.html">CONTATO</a></li>
+        </ul>
+    </nav>
+
+ <div class="icons">
+    <input type="text" placeholder="Buscar..." id="search">
+
+    <img src="img/login-avatar.png" class="user-icon">
+
+    <div class="cart-container">
+      <span class="cart">🛒</span>
+      <span id="cart-count">0</span>
+    </div>
+  </div>
+
+      <div id="overlay-cart" class="overlay-cart"></div>
+
+<div id="cart-menu" class="cart-menu">
+  <div class="cart-header">
+    <h2>Seu Carrinho</h2>
+    <span id="close-cart">✕</span>
+  </div>
+
+  <div id="cart-items" class="cart-items"></div>
+
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span>R$ <span id="cart-total">0.00</span></span>
+    </div>
+    <div id="free-shipping" class="free-shipping"></div>
+  </div>
+</div>
+
+    
+</header>
+<script src="script.js"></script>
+</body>
+</html>

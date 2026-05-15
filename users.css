@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  background: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  width: 400px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.breadcrumb {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.email-contato {
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin: 15px 0 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  background: #111;
+  border: 1px solid #444;
+  color: white;
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid red;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background: red;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: darkred;
+}
+
+.criar-conta {
+  margin-top: 15px;
+}
+
+.criar-conta span {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.criar-conta a {
+  color: #c00000;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.criar-conta a:hover {
+  color: darkred;
+}
+
+
